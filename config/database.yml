@@ -7,14 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: rails5base_development
+  database: daily_tasks_development
 
 test:
   <<: *default
-  database: rails5base_test
+  database: daily_tasks_test
 
 production:
   <<: *default
-  database: rails5base_production
-  username: rails5base
+  database: daily_tasks_production
+  username: daily_tasks
   password: <%= ENV['RAILS_BASE_DATABASE_PASSWORD'] %>
