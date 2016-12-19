@@ -1,1 +1,8 @@
 h1 TOP Page
+
+table.table
+  tr
+    th = Task.human_attribute_name(:name)
+    th = Task.human_attribute_name(:estimate)
+       
+  = render @tasks
