@@ -1,9 +1,4 @@
 .page-header.text-center
   h2 Daily Tasks
 
-table.table
-  tr
-    th = Task.human_attribute_name(:name)
-    th = Task.human_attribute_name(:estimate)
-    
-  = render @tasks
+= react_component 'TaskBox', tasks: @tasks
