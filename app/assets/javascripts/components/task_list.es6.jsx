@@ -16,6 +16,7 @@ class TaskList extends React.Component {
         </thead>
         <tbody>
           {taskNodes}
+          <TaskSummary tasks={this.props.tasks} />
         </tbody>
       </table>
     );
