@@ -11,6 +11,16 @@ class TaskBox extends React.Component {
     this.setState({tasks: newTasks});
 
     // TODO: post to server
+    $.ajax({
+      url: '/tasks',
+      dataType: 'json',
+      type: 'POST',
+      data: {task: task},
+      success: (tasks) => { this.setState({tasks: tasks}); },
+      errors: (xhr, status, error) => {
+        console.error(status, err.toString());
+      }
+    });
   }
 
   render () {
