@@ -7,6 +7,7 @@ class TaskBox extends React.Component {
 
   render () {
     return(
+      <TaskForm />
       <TaskList tasks={this.state.tasks} />
     );
   }
