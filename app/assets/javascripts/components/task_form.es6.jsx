@@ -6,7 +6,7 @@ class TaskForm extends React.Component {
     var estimate = parseInt(this.refs.estimate.value.trim());
     if (!taskName || !estimate) return;
 
-    this.props.onAddTask({name: taskName, estimate: estimate});
+    this.props.onAddTask({id: -1, name: taskName, estimate: estimate});
 
     this.refs.name.value = '';
     this.refs.estimate.value = '';

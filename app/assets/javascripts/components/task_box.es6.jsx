@@ -7,10 +7,9 @@ class TaskBox extends React.Component {
 
   onAddTask(task) {
     var tasks = this.state.tasks;
-    var newTasks = [task].concat(tasks);
+    var newTasks = tasks.concat(task);
     this.setState({tasks: newTasks});
 
-    // TODO: post to server
     $.ajax({
       url: '/tasks',
       dataType: 'json',
