@@ -3,10 +3,10 @@ class TaskForm extends React.Component {
     e.preventDefault();
 
     var taskName = this.refs.name.value.trim();
-    var estimate = this.refs.estimate.value.trim();
+    var estimate = parseInt(this.refs.estimate.value.trim());
     if (!taskName || !estimate) return;
 
-    // this.props.onAddTask({name: taskName, estimate: estimate});
+    this.props.onAddTask({name: taskName, estimate: estimate});
 
     this.refs.name.value = '';
     this.refs.estimate.value = '';
