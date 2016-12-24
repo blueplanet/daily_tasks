@@ -7,8 +7,10 @@ class TaskBox extends React.Component {
 
   render () {
     return(
-      <TaskForm />
-      <TaskList tasks={this.state.tasks} />
+      <div className='task-box'>
+        <TaskForm />
+        <TaskList tasks={this.state.tasks} />
+      </div>
     );
   }
 }
