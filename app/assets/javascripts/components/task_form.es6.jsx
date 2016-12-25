@@ -26,6 +26,7 @@ class TaskForm extends React.Component {
             <input className='btn btn-primary btn-block' type='submit' value='追加'></input>
           </div>
         </div>
+        <br />
       </form>
     );
   }
