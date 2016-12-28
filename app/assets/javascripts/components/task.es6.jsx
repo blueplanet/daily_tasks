@@ -10,6 +10,13 @@ class Task extends React.Component {
     this.setState({editMode: true});
   }
 
+  onClickUpdate (e) {
+    e.preventDefault();
+    this.setState({editMode: false});
+
+    // TODO: update estimateTotal
+  }
+
   onChangeName (e) {
     this.setState({name: e.target.value.trim()});
   }
@@ -30,11 +37,14 @@ class Task extends React.Component {
           <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.estimate} onChange={this.onChangeEstimate.bind(this)} />
         </div>
         <div className='col-md-2'>
-          <div className='form-control-static text-center'>
+          <div className={'form-control-static text-center ' + (this.state.editMode ? 'hide' : '')}>
             <a href='#' className='edit' onClick={this.onClickEdit.bind(this)}>
               <span className='glyphicon glyphicon-edit'></span>
             </a>
           </div>
+          <a href='#' className={'btn btn-primary btn-block ' + (this.state.editMode ? '' : 'hide')} onClick={this.onClickUpdate.bind(this)}>
+            保存
+          </a>
         </div>
       </div>
     );
