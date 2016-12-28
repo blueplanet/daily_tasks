@@ -2,7 +2,7 @@ class Task extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {editMode: false, task: props.task};
+    this.state = {editMode: false, name: props.task.name, estimate: props.task.estimate};
   }
 
   onClickEdit (e) {
@@ -11,8 +11,7 @@ class Task extends React.Component {
   }
 
   onChangeName (e) {
-    // this.setState({name: e.target.value.trim()});
-    console.log('on change name!!!!!!!!!!!!!!!!!!!!!!!!!');
+    this.setState({name: e.target.value.trim()});
   }
 
   onChangeEstimate (e) {
@@ -23,12 +22,12 @@ class Task extends React.Component {
     return(
       <div className='row task-item' key={this.props.task.id}>
         <div className='col-md-8'>
-          <div className={'form-control-static text-center ' + (this.state.editMode ? 'hide' : '')}>{this.props.task.name}</div>
-          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.task.name} onChange={this.onChangeName.bind(this)} />
+          <div className={'form-control-static text-center ' + (this.state.editMode ? 'hide' : '')}>{this.state.name}</div>
+          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.name} onChange={this.onChangeName.bind(this)} />
         </div>
         <div className='col-md-2'>
-          <div className={'form-control-static text-center ' + (this.state.editMode? 'hide' : '')}>{this.props.task.estimate}</div>
-          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.props.task.estimate} onChange={this.onChangeEstimate.bind(this)} />
+          <div className={'form-control-static text-center ' + (this.state.editMode? 'hide' : '')}>{this.state.estimate}</div>
+          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.estimate} onChange={this.onChangeEstimate.bind(this)} />
         </div>
         <div className='col-md-2'>
           <div className='form-control-static text-center'>
