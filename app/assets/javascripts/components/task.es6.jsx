@@ -2,7 +2,7 @@ class Task extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {editMode: false, name: props.task.name, estimate: props.task.estimate};
+    this.state = {editMode: false, task: props.task};
   }
 
   onClickEdit (e) {
@@ -14,27 +14,29 @@ class Task extends React.Component {
     e.preventDefault();
     this.setState({editMode: false});
 
-    // TODO: update estimateTotal
+    this.props.onUpdateTask(this.state.task);
   }
 
   onChangeName (e) {
-    this.setState({name: e.target.value.trim()});
+    this.state.task.name = e.target.value.trim();
+    this.setState({task: this.state.task});
   }
 
   onChangeEstimate (e) {
-    this.setState({estimate: parseInt(e.target.value.trim())});
+    this.state.task.estimate = parseInt(e.target.value.trim());
+    this.setState({task: this.state.task});
   }
 
   render () {
     return(
       <div className='row task-item' key={this.props.task.id}>
         <div className='col-md-8'>
-          <div className={'form-control-static text-center ' + (this.state.editMode ? 'hide' : '')}>{this.state.name}</div>
-          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.name} onChange={this.onChangeName.bind(this)} />
+          <div className={'form-control-static text-center ' + (this.state.editMode ? 'hide' : '')}>{this.state.task.name}</div>
+          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.task.name} onChange={this.onChangeName.bind(this)} />
         </div>
         <div className='col-md-2'>
-          <div className={'form-control-static text-center ' + (this.state.editMode? 'hide' : '')}>{this.state.estimate}</div>
-          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.estimate} onChange={this.onChangeEstimate.bind(this)} />
+          <div className={'form-control-static text-center ' + (this.state.editMode? 'hide' : '')}>{this.state.task.estimate}</div>
+          <input className={'form-control ' + (this.state.editMode ? '' : 'hide')} type='text' value={this.state.task.estimate} onChange={this.onChangeEstimate.bind(this)} />
         </div>
         <div className='col-md-2'>
           <div className={'form-control-static text-center ' + (this.state.editMode ? 'hide' : '')}>

@@ -2,7 +2,7 @@ class TaskList extends React.Component {
   render () {
     var taskNodes = this.props.tasks.map((task) => {
       return(
-        <Task key={task.id} task={task} />
+        <Task key={task.id} task={task} onUpdateTask={this.props.onUpdateTask.bind(this)} />
       );
     });
 
