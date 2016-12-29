@@ -10,10 +10,17 @@ class TaskSummary extends React.Component {
 
   render () {
     return(
-      <tr>
-        <td className='text-right'>合計</td>
-        <td>{this.estimateTotal()}</td>
-      </tr>
+      <div className='row'>
+        <hr />
+        <div className='col-md-8'>
+          <div className='form-control-static text-right'>
+            <i>合計</i>
+          </div>
+        </div>
+        <div className='col-md-2'>
+          <div className='form-control-static text-center'>{this.estimateTotal()}</div>
+        </div>
+      </div>
     );
   }
 }

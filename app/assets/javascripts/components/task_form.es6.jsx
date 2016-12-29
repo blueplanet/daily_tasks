@@ -15,7 +15,7 @@ class TaskForm extends React.Component {
   render() {
     return(
       <form className='form' onSubmit={this.handleSubmit.bind(this)}>
-        <div className='form-group'>
+        <div className='row'>
           <div className='col-md-8'>
             <input className='form-control' type='text' ref='name' placeholder='タスク内容'></input>
           </div>
@@ -26,6 +26,7 @@ class TaskForm extends React.Component {
             <input className='btn btn-primary btn-block' type='submit' value='追加'></input>
           </div>
         </div>
+        <br />
       </form>
     );
   }

@@ -22,11 +22,26 @@ class TaskBox extends React.Component {
     });
   }
 
+  onUpdateTask(task) {
+    this.setState({tasks: this.state.tasks});
+
+    $.ajax({
+      url: '/tasks/' + task.id,
+      dataType: 'json',
+      type: 'PATCH',
+      data: {task: task},
+      success: (tasks) => { this.setState({tasks: tasks}); },
+      errors: (xhr, status, error) => {
+        console.error(status, err.toString());
+      }
+    })
+  }
+
   render () {
     return(
       <div className='task-box'>
         <TaskForm onAddTask={this.onAddTask.bind(this)} />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList tasks={this.state.tasks} onUpdateTask={this.onUpdateTask.bind(this)} />
       </div>
     );
   }
