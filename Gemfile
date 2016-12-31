@@ -25,6 +25,8 @@ gem 'config'
 
 gem 'react-rails'
 
+gem 'ranked-model'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
